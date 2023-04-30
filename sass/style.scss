@@ -440,13 +440,12 @@ a {
       position: absolute;
       bottom: 50px;
       right: 100px;
-      background-color: #fff;
+      background-color: #eee;
 
       @include mq("sp") {
         width: 1px;
         height: 125px;
         left: 50%;
-        transform: translateX(-50%);
       }
     }
     &::after {
@@ -458,32 +457,47 @@ a {
       bottom: 50px;
       right: 100px;
       background-color: $color-primary;
-      animation: animate 1.5s linear infinite;
+      animation: animate 1.5s ease-in-out infinite;
 
       @include mq("sp") {
         width: 1px;
         height: 25px;
         left: 50%;
-        transform: translateX(-50%);
         animation: sp-animate 1.2s linear infinite;
       }
     }
     @keyframes animate {
       0% {
-        transform: translateY(-160px);
+        transform: translateY(-200px);
+        height: 0;
+        opacity: 0;
       }
 
-      90% {
-        transform: translateY(0%);
+      50% {
+        height: 50px;
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(30px);
+        opacity: 0;
       }
     }
     @keyframes sp-animate {
       0% {
-        transform: translateY(-100px);
+        transform: translateY(-140px);
+        height: 0;
+        opacity: 0;
       }
 
-      90% {
-        transform: translateY(0%);
+      50% {
+        height: 20px;
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(20px);
+        opacity: 0;
       }
     }
   }
@@ -784,7 +798,6 @@ a {
 
   &__list {
     margin-top: 24px;
-    padding-left: 30px;
     padding-bottom: 32px;
 
     @include mq("tab") {
@@ -793,6 +806,27 @@ a {
   }
 
   &__txt {
+    position: relative;
+    padding-left: 30px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 4px;
+      border-left: 1px solid $color-secondary;
+      border-bottom: 1px solid $color-secondary;
+      position: absolute;
+      top: 40%;
+      left: 8px;
+      transform: translateY(-50%);
+      transform: rotate(-45deg);
+    }
+
+    &.--archive::before {
+      top: 7px;
+    }
+
     & + & {
       margin-top: 16px;
     }
@@ -824,6 +858,8 @@ a {
 
   &__inner {
     max-width: 1200px;
+    padding-left: 2%;
+    padding-right: 2%;
 
     @include mq("tab") {
       max-width: 600px;
@@ -839,9 +875,19 @@ a {
     }
   }
 
+  &__link {
+    display: block;
+    padding: 10px;
+  }
+
   &__img {
+    max-width: 372px;
+    max-height: 230px;
+    width: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     img {
       width: 100%;
+      height: auto;
     }
   }
 }
@@ -856,6 +902,7 @@ a {
   a {
     display: inline-block;
     transition: opacity 0.3s ease;
+    
     &:hover {
       opacity: 0.6;
     }
@@ -865,6 +912,9 @@ a {
 .swiper-button-next,
 .swiper-button-prev {
   --swiper-navigation-color: $color-secondary;
+}
+.swiper-button-lock {
+  display: block;
 }
 
 /* ===============================================

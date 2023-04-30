@@ -400,15 +400,13 @@ a {
   position: absolute;
   bottom: 50px;
   right: 100px;
-  background-color: #fff;
+  background-color: #eee;
 }
 @media screen and (max-width: 767px) {
   .top__inner::before {
     width: 1px;
     height: 125px;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
   }
 }
 .top__inner::after {
@@ -420,58 +418,84 @@ a {
   bottom: 50px;
   right: 100px;
   background-color: #fd6011;
-  -webkit-animation: animate 1.5s linear infinite;
-          animation: animate 1.5s linear infinite;
+  -webkit-animation: animate 1.5s ease-in-out infinite;
+          animation: animate 1.5s ease-in-out infinite;
 }
 @media screen and (max-width: 767px) {
   .top__inner::after {
     width: 1px;
     height: 25px;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
     -webkit-animation: sp-animate 1.2s linear infinite;
             animation: sp-animate 1.2s linear infinite;
   }
 }
 @-webkit-keyframes animate {
   0% {
-    -webkit-transform: translateY(-160px);
-            transform: translateY(-160px);
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+    height: 0;
+    opacity: 0;
   }
-  90% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+  50% {
+    height: 50px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+    opacity: 0;
   }
 }
 @keyframes animate {
   0% {
-    -webkit-transform: translateY(-160px);
-            transform: translateY(-160px);
+    -webkit-transform: translateY(-200px);
+            transform: translateY(-200px);
+    height: 0;
+    opacity: 0;
   }
-  90% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+  50% {
+    height: 50px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+    opacity: 0;
   }
 }
 @-webkit-keyframes sp-animate {
   0% {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
+    -webkit-transform: translateY(-140px);
+            transform: translateY(-140px);
+    height: 0;
+    opacity: 0;
   }
-  90% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+  50% {
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
   }
 }
 @keyframes sp-animate {
   0% {
-    -webkit-transform: translateY(-100px);
-            transform: translateY(-100px);
+    -webkit-transform: translateY(-140px);
+            transform: translateY(-140px);
+    height: 0;
+    opacity: 0;
   }
-  90% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+  50% {
+    height: 20px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
   }
 }
 .top__txt {
@@ -795,13 +819,34 @@ a {
 }
 .card__list {
   margin-top: 24px;
-  padding-left: 30px;
   padding-bottom: 32px;
 }
 @media screen and (max-width: 999px) {
   .card__list {
     font-size: 14px;
   }
+}
+.card__txt {
+  position: relative;
+  padding-left: 30px;
+}
+.card__txt::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 4px;
+  border-left: 1px solid #11253d;
+  border-bottom: 1px solid #11253d;
+  position: absolute;
+  top: 40%;
+  left: 8px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.card__txt.--archive::before {
+  top: 7px;
 }
 .card__txt + .card__txt {
   margin-top: 16px;
@@ -831,6 +876,8 @@ a {
 }
 .works__inner {
   max-width: 1200px;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 @media screen and (max-width: 999px) {
   .works__inner {
@@ -861,8 +908,20 @@ a {
     margin-top: 42px;
   }
 }
+.works__link {
+  display: block;
+  padding: 10px;
+}
+.works__img {
+  max-width: 372px;
+  max-height: 230px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
 .works__img img {
   width: 100%;
+  height: auto;
 }
 
 .swiper {
@@ -885,6 +944,10 @@ a {
 .swiper-button-next,
 .swiper-button-prev {
   --swiper-navigation-color: $color-secondary;
+}
+
+.swiper-button-lock {
+  display: block;
 }
 
 /* ===============================================

@@ -65,19 +65,18 @@ $(function () {
 
   // swiper
   const swiper = new Swiper(".swiper", {
-    slidesPerView: 1,
+    loop: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-
+    slidesPerView: 1,
     breakpoints: {
       1000: {
         slidesPerView: 3,
         spaceBetween: 40,
       },
     },
-    loop: true,
   });
 
   // modal
