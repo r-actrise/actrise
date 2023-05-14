@@ -300,13 +300,18 @@ a {
 
 .sp-gnav-icon {
   position: fixed;
-  top: 19px;
   right: 20px;
   z-index: 900;
   display: none;
 
+  
   @include mq("tab") {
     display: block;
+    top: 24px;
+  }
+  @include mq('sp') {
+    display: block;
+    top: 19px;
   }
 
   &.is-active {

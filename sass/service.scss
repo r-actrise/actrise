@@ -123,7 +123,7 @@ a {
   }
 
   @include mq("sp") {
-    font-size: 20px;
+    font-size: 26px;
   }
 }
 
@@ -136,7 +136,7 @@ a {
   color: rgba(83, 97, 108, 0.8);
 
   @include mq("sp") {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 8px;
   }
 }
@@ -301,13 +301,17 @@ a {
 
 .sp-gnav-icon {
   position: fixed;
-  top: 19px;
   right: 20px;
   z-index: 900;
   display: none;
 
   @include mq("tab") {
     display: block;
+    top: 24px;
+  }
+  @include mq('sp') {
+    display: block;
+    top: 19px;
   }
 
   &.is-active {

@@ -55,6 +55,18 @@ $(function () {
 
     return false;
   });
+  $(".sp-gnav__link").on("click", function (e) {
+    e.preventDefault();
+    $(".sp-gnav-icon").removeClass("is-active");
+    $(".sp-gnav").removeClass("is-active");
+    $(".sp-gnav-bg").removeClass("is-active");
+    return false;
+  });
+  $(".sp-gnav-bg").on("click", function () {
+    $(".sp-gnav-icon").removeClass("is-active");
+    $(".sp-gnav").removeClass("is-active");
+    $(".sp-gnav-bg").removeClass("is-active");
+  });
 
   // wow.js初期化
   new WOW().init();

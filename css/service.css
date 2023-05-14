@@ -75,7 +75,7 @@ a {
 }
 @media screen and (max-width: 767px) {
   .section-ttl {
-    font-size: 20px;
+    font-size: 26px;
   }
 }
 
@@ -89,7 +89,7 @@ a {
 }
 @media screen and (max-width: 767px) {
   .section-sub-ttl {
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 8px;
   }
 }
@@ -265,7 +265,6 @@ a {
 
 .sp-gnav-icon {
   position: fixed;
-  top: 19px;
   right: 20px;
   z-index: 900;
   display: none;
@@ -273,6 +272,13 @@ a {
 @media screen and (max-width: 999px) {
   .sp-gnav-icon {
     display: block;
+    top: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .sp-gnav-icon {
+    display: block;
+    top: 19px;
   }
 }
 .sp-gnav-icon.is-active .sp-gnav-icon__bar1 {

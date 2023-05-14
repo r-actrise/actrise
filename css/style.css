@@ -267,7 +267,6 @@ a {
 
 .sp-gnav-icon {
   position: fixed;
-  top: 19px;
   right: 20px;
   z-index: 900;
   display: none;
@@ -275,6 +274,13 @@ a {
 @media screen and (max-width: 999px) {
   .sp-gnav-icon {
     display: block;
+    top: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .sp-gnav-icon {
+    display: block;
+    top: 19px;
   }
 }
 .sp-gnav-icon.is-active .sp-gnav-icon__bar1 {
